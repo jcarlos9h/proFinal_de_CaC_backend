@@ -19,4 +19,14 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Registro</display-name>
+    <servlet-name>Registro</servlet-name>
+    <servlet-class>controladores.Registro</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Registro</servlet-name>
+    <url-pattern>/Registro</url-pattern>
+  </servlet-mapping>
 </web-app>
