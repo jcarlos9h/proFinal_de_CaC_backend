@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Registro</title>
 </head>
 <body>
 	
@@ -18,7 +18,7 @@
  	  <div id="form" class="container p-5 d-flex justify-content-center align-items-center" style="margin-top:80px;">
         	<div>
         		<h1 class="text-center fs-2 fw-bold"> REGISTRO </h1>
-                <form method="post" action="registro" class="row g-12 border border-secondary border-2 rounded p-4">
+                <form method="post" action="registro" class="row g-12 border border-secondary border-2 rounded p-4" id="formularioRegistro">
                 
                     <section class="mt-2">
                          <div class="col-md-12 mb-2">
@@ -40,7 +40,7 @@
                                             
                         <div class="d-flex justify-content-center">
                             <div class="col-14 mb-2"><br>
-                                <input type="submit" style="width:100px ;" class="btn btn-primary btn-sm" value="Registrarse">
+                                <input type="submit" style="width:100px ;" class="btn btn-primary btn-sm" value="Registrarse" onclick="validarPass();">
                                 <a class="btn btn-danger btn-sm m-2" style="width:100px ;" href="index.jsp" role="button">Salir</a>
                             </div>
                         </div>
@@ -50,6 +50,8 @@
       </div>
 
 	 <footer><%@include file= "footer.jsp" %></footer>
-
+	 
+	 
+		
 </body>
 </html>

@@ -1,4 +1,18 @@
-const formulario= document.getElementById("form");
+
+/*window.onload = function validarPass(){
+  //Aquí el código
+
+		let pass=document.getElementById("passwordRegistro").value;
+		let repeatPass=document.getElementById("passwordSesion").value;
+		
+		if(pass!=repeatPass){
+			alert("Las contraseñas deben ser iguales, verifique nuevamente");
+			location.reload();
+		}
+	
+}*/ 
+
+/*const formulario= document.getElementById("form");
 const listaUsuarios= new Array();
 
 
@@ -44,7 +58,7 @@ alert("Usuario registrado con exito!")
 
 
 
-
+*/
 
   
 

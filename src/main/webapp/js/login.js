@@ -1,4 +1,4 @@
-const formulario= document.getElementById("form");
+/*const formulario= document.getElementById("form");
 
 //Se dispara el evento al apretar el boton "Ingresar".
 formulario.addEventListener('submit', (e)=>{
@@ -24,3 +24,4 @@ else{
 
 });
 
+*/
