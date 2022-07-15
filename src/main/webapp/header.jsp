@@ -42,9 +42,6 @@
                         </li>  
                         <li class="nav-item">
                             <a class="nav-link fs-4 text-black links" href="registro.jsp">Registrarse</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fs-4 text-black links" href="Logout">Logout</a>
                         </li>                   
                     </ul>
                     <form class="d-flex">

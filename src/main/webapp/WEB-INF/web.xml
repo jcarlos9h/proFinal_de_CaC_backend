@@ -10,6 +10,7 @@
     <servlet-name>Login</servlet-name>
     <servlet-class>controladores.Login</servlet-class>
   </servlet>
+  
   <servlet>
     <description></description>
     <display-name>Registro</display-name>
@@ -19,15 +20,5 @@
   <servlet-mapping>
     <servlet-name>Registro</servlet-name>
     <url-pattern>/Registro</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Logout</display-name>
-    <servlet-name>Logout</servlet-name>
-    <servlet-class>controladores.Logout</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Logout</servlet-name>
-    <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
 </web-app>

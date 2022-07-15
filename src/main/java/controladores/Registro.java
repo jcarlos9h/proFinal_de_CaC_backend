@@ -41,7 +41,7 @@ public class Registro extends HttpServlet {
 			// jdbc:mysql://localhost:3306/NOMBREBASEDEDATOS?useSSL=false", "USUARIO",
 			// "CONTRASEÑA");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_final_web?useSSL=false", "root",
-					"dr3795");
+					"21306336.Ff,");
 			System.out.println(con);
 			final String STATEMENT = "insert into usuario (nombre_completo, email, contraseña) values (?,?,?)";
 			PreparedStatement pst = con.prepareStatement(STATEMENT);
