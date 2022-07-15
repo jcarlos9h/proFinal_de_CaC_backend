@@ -15,8 +15,7 @@
 </head>
 <body>
 
-<input type="hidden" id="status dias
-" value=" <%=request.getAttribute("status") %>">
+<input type="hidden" id="status" value=" <%=request.getAttribute("status") %>">
 
  <header> 
         <nav class="navbar navbar-expand-lg "style="background-color: #ff6341;">

@@ -38,7 +38,7 @@
                             <a class="nav-link fs-4 text-black links" href="">Nosotros</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link fs-4 text-black links" href="login.jsp">Iniciar Sesion</a>
+                          <a class="nav-link fs-4 text-black links" href="./pages/IniciarSesion.html">Iniciar Sesion</a>
                         </li>  
                         <li class="nav-item">
                             <a class="nav-link fs-4 text-black links" href="registro.jsp">Registrarse</a>
