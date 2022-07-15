@@ -8,8 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Tecnoflex.netlify.app </title>
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="./css/style-giusti.css">
-        <link rel="icon" type="image/jpg" href="./imgs/favicon.ico" />
+        <link rel="stylesheet" href="css/style-giusti.css">
+        <link rel="icon" type="image/jpg" href="imgs/favicon.ico" />
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/8add605683.js" crossorigin="anonymous"></script>
@@ -28,21 +28,16 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        
                         <li class="nav-item">
-                            <a class="nav-link  fs-4 text-black links" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link active fs-4 text-black links" aria-current="page" href="./pages/miCuenta.html" target="_blank">Mi cuenta</a>
+                          <a class="nav-link active fs-4 text-black links" aria-current="page" href="misDatosPersonales.jsp" >Usuario-> <%=session.getAttribute("name") %></a>
                       </li>
                         <li class="nav-item">
-                            <a class="nav-link fs-4 text-black links" href="">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link fs-4 text-black links" href="login.jsp">Iniciar Sesion</a>
-                        </li>  
-                        <li class="nav-item">
-                            <a class="nav-link fs-4 text-black links" href="registro.jsp">Registrarse</a>
-                        </li>                   
+                          <a class="nav-link active fs-4 text-black links" aria-current="page" href="salir" >Salir</a>
+                      </li>
+                        
+                        
+                                        
                     </ul>
                     <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="" aria-label="Search">

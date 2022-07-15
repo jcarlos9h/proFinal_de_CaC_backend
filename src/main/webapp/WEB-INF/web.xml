@@ -10,7 +10,6 @@
     <servlet-name>Login</servlet-name>
     <servlet-class>controladores.Login</servlet-class>
   </servlet>
-  
   <servlet>
     <description></description>
     <display-name>Registro</display-name>
@@ -20,5 +19,25 @@
   <servlet-mapping>
     <servlet-name>Registro</servlet-name>
     <url-pattern>/Registro</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Salir</display-name>
+    <servlet-name>Salir</servlet-name>
+    <servlet-class>controladores.Salir</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Salir</servlet-name>
+    <url-pattern>/Salir</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EliminarCuenta</display-name>
+    <servlet-name>EliminarCuenta</servlet-name>
+    <servlet-class>controladores.EliminarCuenta</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarCuenta</servlet-name>
+    <url-pattern>/EliminarCuenta</url-pattern>
   </servlet-mapping>
 </web-app>

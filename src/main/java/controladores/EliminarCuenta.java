@@ -13,66 +13,84 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import com.mysql.cj.protocol.Resultset;
+import java.sql.SQLException;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class EliminarCuenta
  */
-@WebServlet("/login")
-public class Login extends HttpServlet {
+@WebServlet("/eliminar")
+public class EliminarCuenta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public EliminarCuenta() {
         super();
         // TODO Auto-generated constructor stub
     }
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String usuarioEmail = request.getParameter("usuarioEmail");
-		String usuarioPass = request.getParameter("usuarioPass");
 		HttpSession session = request.getSession();
-		RequestDispatcher disp = null;
-		
+		String emailUsuarioEliminar = request.getParameter("emailEliminar");
+		RequestDispatcher dispacher = null;		
+		Connection coneccion = null;
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection coneccion= DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_final_web?useSSL=false", "root","21306336.Ff,");
-			final String SENTENCIA = "SELECT * FROM usuario WHERE email=? and contraseña=?";
+			coneccion= DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/proyecto_final_web?useSSL=false","root","21306336.Ff,");
+			
+			final String SENTENCIA = "DELETE  FROM usuario WHERE id_Usuario = (SELECT id_Usuario FROM usuario WHERE email=?)";
 			PreparedStatement prepaSentencia = coneccion.prepareStatement(SENTENCIA);
-			prepaSentencia.setString(1, usuarioEmail);
-			prepaSentencia.setString(2, usuarioPass);
+			prepaSentencia.setString(1, emailUsuarioEliminar);
+			///////////////////////prueba de codigo
+			
+			final String QUERYSELECTIDUSUARIO= "SELECT id_Usuario FROM usuario WHERE email=?";
+			PreparedStatement prepQuery = coneccion.prepareStatement(QUERYSELECTIDUSUARIO);
+			prepQuery.setString(1, emailUsuarioEliminar);
+			 String idUsuario="";
+			
+			
+			
+			
+			////////////////////////////////////////
+			
+			
+			
+			
+			
+			
 			ResultSet resultSet = prepaSentencia.executeQuery();
 			
-//			disp = request.getRequestDispatcher("index.jsp");
+			
+			
+//			
 			
 			if(resultSet.next()) {	
-				session.setAttribute("name", resultSet.getString(2));
-				disp = request.getRequestDispatcher("index.jsp");
+				session.setAttribute("name", null);
+				response.sendRedirect("login.jsp");
 			}else {
 				request.setAttribute("status", "failed");
-				disp= request.getRequestDispatcher("login.jsp");
-				
+					
 			}
-			
-			disp.forward(request, response);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		finally {
-			
+			try {
+				coneccion.close();
+			} catch (SQLException e) {
+				// TODO Bloque catch generado automáticamente
+				e.printStackTrace();
+			}
 		}
-		
-		
-		
 	}
 
 }
