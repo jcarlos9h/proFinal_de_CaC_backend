@@ -16,7 +16,7 @@
 </head>                                                                 
 <body>                                                                  
 <section class="miCuenta">
-          <nav class="navbar navbar-light bg-light d-flex">
+          <nav class="navbar navbar-light bg-light d-flex" >
             <div >
               <img src="imgs/IsoLogo.jpeg" alt="" width="100" height="100" class="d-inline-block">
             </div>
@@ -34,45 +34,38 @@
           </nav>
           
           <div class="container">
-	          <div class="row">
-		          <div   class=  "col" >
-		          	<ul class="list-group" class="col  col-xs-4 col-lg-4 " >
+	          <div class="row ">
+		          <div   class=  "col " >
+		          	<ul class="list-group" class="col  col-xs-4 col-lg-4 " id="datosPersonalesparaOcultar"  >
 			              <li class="list-group-item">Nombre y apellido</li>
-			              <li class="list-group-item disabled" aria-disabled="true">Steve jobs</li>
+			              <li class="list-group-item disabled" aria-disabled="true"><%= session.getAttribute("name") %></li>
 			              <li class="list-group-item">email</li>
-			              <li class="list-group-item disabled" aria-disabled="true">Stevejobs@gmail.com</li>
+			              <li class="list-group-item disabled" aria-disabled="true"><%= session.getAttribute("email") %>></li>
 			              <li class="list-group-item">Teléfono</li>
 			              <li class="list-group-item disabled" aria-disabled="true">+541122334455</li>
-			              <li class="list-group-item">País</li>
+			              <li class="list-group-item">Direccion</li>
 			              <li class="list-group-item disabled" aria-disabled="true">Argentina</li>
 			              <li class="list-group-item">Provincia</li>
-			              <li class="list-group-item disabled" aria-disabled="true">Buenos Aires</li>
-			              <li class="list-group-item">Localidad</li>
-			              <li class="list-group-item disabled" aria-disabled="true">La Matanza</li>
-			              <li class="list-group-item">Dirección</li>
-			              <li class="list-group-item disabled" aria-disabled="true">Avenida Siempre Viva 742</li>
-			              <li class="list-group-item">Código postal</li>
-			              <li class="list-group-item disabled" aria-disabled="true">1414</li>
 		             </ul>
-		          </div>
-		          	 <div class="col col-xs-12 col-lg-8 "  >
+		          </div >
+		          	 <div class="col col-xs-12 col-lg-10 "  >
 		          		<form hidden  method="post" action="eliminar" id="formEliminar" style="background-color: white;" class="p-5" >
 		          			<h1>¿Por favor Complete una pequeña encuesta para mejorar nuestos servicios?</h1>
 		          			
-					        <label for="preg1">1.) Por que desea eliminar su cuenta?</label>
-					        <input type="text" placeholder="Ingrese un comentario" id="preg1">
+					        <label for="preg1"class="d-flex">1.) Por que desea eliminar su cuenta?</label>
+					        <input type="text" class="" placeholder="Ingrese un comentario" id="preg1">
 					        <br>
 					        
-					        <label for="preg2">2.) Que le gustaria que mejoraramos?</label>
-					        <input type="text" placeholder="Ingrese un comentario"id="preg2">
+					        <label for="preg2"class="d-flex">2.) Que le gustaria que mejoraramos?</label>
+					        <input type="text" class="" placeholder="Ingrese un comentario"id="preg2">
 					        <br>
 					        
-					        <label for="preg3">3.) Recomendaria nuestra aplicacion?</label>
-					        <input type="text" placeholder="Ingrese un comentario" id="preg3">
+					        <label for="preg3"class="d-flex">3.) Recomendaria nuestra aplicacion?</label>
+					        <input type="text"class="" placeholder="Ingrese un comentario" id="preg3">
 					        <br>
 					        
-					        <label for="emailEliminar">4.) Email para Suspender Notificacion?</label>
-					        <input type="text" placeholder="Ingresar E-mail" name="emailEliminar" id="emailEliminar">
+					        <label for="emailEliminar"class="d-flex">4.) Email para Suspender Notificacion?</label>
+					        <input type="text"class="" placeholder="Ingresar E-mail" name="emailEliminar" id="emailEliminar">
 					        <br><br>
 					        
 					        <input type="submit" value="Enviar" class="p-2 m-2 bg-primary">
@@ -84,21 +77,28 @@
 	          		
 	          </div>
 	          <div class="row">
-	          		<div class="col">
-	          			<div class="col col-xs-12 col-lg-8 "  >
-		          		<form hidden  method="post" action="eliminar" style="background-color: white;" class="p-5" id="datosPers">
-		          			<h1>¿Por favor Ingrese los datos que desea Actualizar?</h1>
+	          		<div class="col d-flex justify-content-center">
+	          			<div class="col col-xs-12 col-lg-12 "  >
+		          		<form hidden  method="post" action="actualizar" style="background-color: white;" class="p-5  " id="datosPers">
+		          			<h1>Por favor Ingrese los datos que desea Actualizar</h1>
 		          			
-					        <label for="preg1">Nombre</label>
-					        <input type="text" placeholder="Ingrese el nuevo nombre" id="preg1">
+					        <label for="preg1" class="d-flex">Nombre completo</label>
+					        <input type="text" name="nombreActualizar" placeholder="Ingrese el nuevo nombre" id="preg1">
 					        <br>
 					        
-					        <label for="preg2">E-mail</label>
-					        <input type="text" placeholder="Ingrese el E-mail actualizado"id="preg2">
+					        <label for="preg2" class="d-flex">E-mail</label>
+					        <input type="email" name="emailActualizar" placeholder="Ingrese el E-mail actualizado"id="preg2">
 					        <br>
 					        
-					        <label for="preg3">Contraseña</label>
-					        <input type="text" placeholder="Ingrese la nueva contraseña" id="preg3">
+					        <label for="preg3" class="d-flex">Contraseña</label>
+					        <input type="password" name="passActualizar" placeholder="Ingrese la nueva contraseña" id="preg3">
+					        <br>
+					        <label for="preg4"class="d-flex">Telefono</label>
+					        <input type="text"class="" placeholder="Ingrese su numero telefonico" id="preg4">
+					        <br>
+					        <label for="preg5"class="d-flex">Direccion</label>
+					        <input type="text"class="" placeholder="Ingrese la nueva direccion" id="preg5">
+					        
 					        
 					        <br><br>
 					        
@@ -131,12 +131,16 @@ function cambiarStatusForm() {
     console.log(form);
     form.removeAttribute("hidden");
     
+    var dpo = document.getElementById("datosPersonalesparaOcultar");
+    dpo.setAttribute("hidden","hidden");
 }
 
 function editarDatos(){
 	var datosPers = document.getElementById("datosPers");
     datosPers.removeAttribute("hidden");
-	
+    
+    var dpo = document.getElementById("datosPersonalesparaOcultar");
+    dpo.setAttribute("hidden","hidden");
 }
 	
 </script>    

@@ -44,4 +44,14 @@
     <servlet-name>EliminarCuenta</servlet-name>
     <url-pattern>/EliminarCuenta</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Actualizar</display-name>
+    <servlet-name>Actualizar</servlet-name>
+    <servlet-class>controladores.Actualizar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Actualizar</servlet-name>
+    <url-pattern>/Actualizar</url-pattern>
+  </servlet-mapping>
 </web-app>
