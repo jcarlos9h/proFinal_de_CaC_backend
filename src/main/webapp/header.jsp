@@ -30,7 +30,8 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         
                         <li class="nav-item">
-                          <a class="nav-link active fs-4 text-black links" aria-current="page" href="misDatosPersonales.jsp" >Usuario-> <%=session.getAttribute("name") %></a>
+                          <a class="nav-link active fs-4 text-black links" aria-current="page" href="misDatosPersonales.jsp" >Usuario-> <%=session.getAttribute("name") %> </a>
+                      		<a hidden name="idUsuario"> <%= session.getAttribute("id") %>= ></a>
                       </li>
                         <li class="nav-item">
                           <a class="nav-link active fs-4 text-black links" aria-current="page" href="salir" >Salir</a>

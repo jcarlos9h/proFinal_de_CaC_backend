@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import models.Usuario;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -36,42 +37,26 @@ public class EliminarCuenta extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		String emailUsuarioEliminar = request.getParameter("emailEliminar");
 		RequestDispatcher dispacher = null;		
 		Connection coneccion = null;
+		
+		int idUsuario= (int)session.getAttribute("id");
+		
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			coneccion= DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/proyecto_final_web?useSSL=false","root","21306336.Ff,");
 			
-			final String SENTENCIA = "DELETE  FROM usuario WHERE id_Usuario = (SELECT id_Usuario FROM usuario WHERE email=?)";
+			final String SENTENCIA = "DELETE  FROM usuario WHERE id_Usuario = ?";
 			PreparedStatement prepaSentencia = coneccion.prepareStatement(SENTENCIA);
-			prepaSentencia.setString(1, emailUsuarioEliminar);
-			///////////////////////prueba de codigo
-			
-			final String QUERYSELECTIDUSUARIO= "SELECT id_Usuario FROM usuario WHERE email=?";
-			PreparedStatement prepQuery = coneccion.prepareStatement(QUERYSELECTIDUSUARIO);
-			prepQuery.setString(1, emailUsuarioEliminar);
-			 String idUsuario="";
-			
-			
-			
-			
-			////////////////////////////////////////
-			
-			
-			
-			
-			
+			prepaSentencia.setInt(1, idUsuario);
 			
 			ResultSet resultSet = prepaSentencia.executeQuery();
 			
+	
 			
-			
-//			
-			
-			if(resultSet.next()) {	
+			if(resultSet.wasNull()) {	
 				session.setAttribute("name", null);
 				response.sendRedirect("login.jsp");
 			}else {
