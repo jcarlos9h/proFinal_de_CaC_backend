@@ -52,11 +52,11 @@ public class EliminarCuenta extends HttpServlet {
 			PreparedStatement prepaSentencia = coneccion.prepareStatement(SENTENCIA);
 			prepaSentencia.setInt(1, idUsuario);
 			
-			ResultSet resultSet = prepaSentencia.executeQuery();
+			int rowCont = prepaSentencia.executeUpdate();
 			
 	
 			
-			if(resultSet.wasNull()) {	
+			if(rowCont>0) {	
 				session.setAttribute("name", null);
 				response.sendRedirect("login.jsp");
 			}else {

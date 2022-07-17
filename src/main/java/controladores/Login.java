@@ -47,7 +47,7 @@ public class Login extends HttpServlet {
 			Connection coneccion= DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_final_web?useSSL=false", "root","21306336.Ff,");
 			final String SENTENCIA = "SELECT * FROM usuario WHERE email=? and contraseña=?";
 			PreparedStatement prepaSentencia = coneccion.prepareStatement(SENTENCIA);
-			prepaSentencia.setNString(1, usuarioEmail);
+			prepaSentencia.setString(1, usuarioEmail);
 			prepaSentencia.setString(2, usuarioPass);
 			ResultSet resultSet = prepaSentencia.executeQuery();
 			
@@ -57,8 +57,6 @@ public class Login extends HttpServlet {
 
 				session.setAttribute("name", resultSet.getString(2));
 				session.setAttribute("id", resultSet.getInt(1));
-
-
 				disp = request.getRequestDispatcher("index.jsp");
 			}else {
 				request.setAttribute("status", "failed");
@@ -70,6 +68,7 @@ public class Login extends HttpServlet {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		finally {
 			

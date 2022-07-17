@@ -34,13 +34,10 @@
                       		<a hidden name="idUsuario"> <%= session.getAttribute("id") %>= ></a>
                       </li>
                         <li class="nav-item">
-<<<<<<< HEAD
                           <a class="nav-link active fs-4 text-black links" aria-current="page" href="salir" >Salir</a>
                       </li>
                         
-                        
-                                        
-=======
+
                             <a class="nav-link fs-4 text-black links" href="">Nosotros</a>
                         </li>
                         <li class="nav-item">
@@ -49,7 +46,7 @@
                         <li class="nav-item">
                             <a class="nav-link fs-4 text-black links" href="registro.jsp">Registrarse</a>
                         </li>                   
->>>>>>> 234537a31fe188383894e8c7eafaf329c998ba39
+
                     </ul>
                     <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
