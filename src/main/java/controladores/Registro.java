@@ -29,6 +29,8 @@ public class Registro extends HttpServlet {
 		String uname = request.getParameter("NameRegistro");
 		String uemail = request.getParameter("EmailRegistro");
 		String upwd = request.getParameter("passwordRegistro");
+		String utelefono = request.getParameter("telefono");
+		String uDireccion = request.getParameter("direccion");
 		
 	    RequestDispatcher disp = null;
 		Connection con=null;
@@ -43,11 +45,13 @@ public class Registro extends HttpServlet {
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_final_web?useSSL=false", "root",
 					"21306336.Ff,");
 			System.out.println(con);
-			final String STATEMENT = "insert into usuario (nombre_completo, email, contraseña) values (?,?,?)";
+			final String STATEMENT = "insert into usuario (nombre_completo, email, contraseña,telefono,direccion) values (?,?,?,?,?)";
 			PreparedStatement pst = con.prepareStatement(STATEMENT);
 			pst.setString(1, uname);
 			pst.setString(2, uemail);
 			pst.setString(3, upwd);
+			pst.setString(4, utelefono);
+			pst.setString(5, uDireccion);
 
 //			 en rowCount guardamos un valor entero de la cantidad de registros
 //			 modificados/agregados
@@ -59,7 +63,7 @@ public class Registro extends HttpServlet {
 			disp = request.getRequestDispatcher("index.jsp");
 
 			if (rowCount > 0) {
-				request.setAttribute("name", "success");
+//				request.setAttribute("name", "success");
 			} else {
 				request.setAttribute("status", "failed");
 			}

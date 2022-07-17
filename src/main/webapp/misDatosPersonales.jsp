@@ -14,25 +14,45 @@
 		<meta charset="ISO-8859-1">                                             
                                                     
 </head>                                                                 
-<body>                                                                  
-<section class="miCuenta">
-          <nav class="navbar navbar-light bg-light d-flex" >
-            <div >
-              <img src="imgs/IsoLogo.jpeg" alt="" width="100" height="100" class="d-inline-block">
-            </div>
-            <div class="">
-              <a class="nav-link fs-4 text-black" href="../index.html">Sobre Nosotros</a>
-              <button type="button" class="btn btn-primary btn-sm" onclick = "editarDatos()">Editar perfil</button>
-              <a class="navbar-brand mx-4" href="index.jsp">Inicio</a>
-              <a class="navbar-brand mx-4" type="button"  onclick="cambiarStatusForm()" >Eliminar Cuenta</a>
-              <a class="cc " href="pages/carrito.html"><i class="fas fa-shopping-cart"></i></a>
-            		<form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
-                    <button class="btn btn-light k text-black" type="submit">Buscar</button>
-                    </form>
-            </div>
-          </nav>
-          
+<body>     
+	<header> 
+         <nav class="navbar navbar-expand-lg" style="background-color: #ff6341;">
+           <div class="container-fluid ">
+               <img src="imgs/favicon.ico" style="width: 60px; background:white;border-radius:4px;" alt="">
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                   <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                   <a class="nav-link active fs-4 text-black links me-5" aria-current="page" href="misDatosPersonales.jsp" style="text-decoration: none"> Usuario -> <%=session.getAttribute("name") %> </a>
+                   <ul class="navbar-nav ms-auto mb-2 mb-lg-0 " >
+							<li class="nav-item">
+                         	
+                     		<a hidden name="idUsuario"> <%= session.getAttribute("id") %>= ></a>
+                     	</li>
+                       <li class="nav-item">
+	                       <a class="nav-link active fs-4 text-black links m-" href="index.jsp">Inicio</a>
+                    	</li>
+                    	<li>
+                    		<a class="nav-link active fs-4 text-black links" type="button"  onclick = "editarDatos()" >Editar perfil</a>
+                    	</li>
+                    	<li>
+                    		<a class="nav-link active fs-4 text-black links" type="button"  onclick="cambiarStatusForm()" >Eliminar Cuenta</a>
+                    	</li>
+                    	<li class="nav-item">
+	                        <a class="nav-link active fs-4 text-black links" aria-current="page" href="salir" >Salir</a>
+                    	</li>
+                   </ul>
+                   <form class="d-flex">
+                   <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
+                   <button class="btn btn-light k text-black" type="submit">Buscar</button>
+                   </form>
+                   <a class="cc" href="./pages/carrito.html"><i class="fas fa-shopping-cart"></i></a>
+               </div>
+           </div>
+         </nav>
+   </header>                                                              
+
+      	<section>   	 
           <div class="container">
 	          <div class="row ">
 		          <div   class=  "col " >
@@ -40,12 +60,11 @@
 			              <li class="list-group-item">Nombre y apellido</li>
 			              <li class="list-group-item disabled" aria-disabled="true"><%= session.getAttribute("name") %></li>
 			              <li class="list-group-item">email</li>
-			              <li class="list-group-item disabled" aria-disabled="true"><%= session.getAttribute("email") %>></li>
+			              <li class="list-group-item disabled" aria-disabled="true"><%= session.getAttribute("email") %></li>
 			              <li class="list-group-item">Teléfono</li>
-			              <li class="list-group-item disabled" aria-disabled="true">+541122334455</li>
+			              <li class="list-group-item disabled" aria-disabled="true"><%= session.getAttribute("telefono")%></li>
 			              <li class="list-group-item">Direccion</li>
-			              <li class="list-group-item disabled" aria-disabled="true">Argentina</li>
-			              <li class="list-group-item">Provincia</li>
+			              <li class="list-group-item disabled" aria-disabled="true"><%= session.getAttribute("direccion")%></li>
 		             </ul>
 		          </div >
 		          	 <div class="col col-xs-12 col-lg-10 "  >
@@ -83,21 +102,21 @@
 		          			<h1>Por favor Ingrese los datos que desea Actualizar</h1>
 		          			
 					        <label for="preg1" class="d-flex">Nombre completo</label>
-					        <input type="text" name="nombreActualizar" placeholder="Ingrese el nuevo nombre" id="preg1">
+					        <input type="text" required="required" name="nombreActualizar" placeholder="Ingrese el nuevo nombre" id="preg1">
 					        <br>
 					        
 					        <label for="preg2" class="d-flex">E-mail</label>
-					        <input type="email" name="emailActualizar" placeholder="Ingrese el E-mail actualizado"id="preg2">
+					        <input type="email" required="required" name="emailActualizar" placeholder="Ingrese el E-mail actualizado"id="preg2">
 					        <br>
 					        
 					        <label for="preg3" class="d-flex">Contraseña</label>
-					        <input type="password" name="passActualizar" placeholder="Ingrese la nueva contraseña" id="preg3">
+					        <input type="password" required="required" name="passActualizar" placeholder="Ingrese la nueva contraseña" id="preg3">
 					        <br>
 					        <label for="preg4"class="d-flex">Telefono</label>
-					        <input type="text"class="" placeholder="Ingrese su numero telefonico" id="preg4">
+					        <input type="text"class=""  name ="telefonoActualizar" placeholder="Ingrese su numero telefonico" id="preg4" placeholder="Ingrese el nuevo telefono">
 					        <br>
 					        <label for="preg5"class="d-flex">Direccion</label>
-					        <input type="text"class="" placeholder="Ingrese la nueva direccion" id="preg5">
+					        <input type="text"class=""  name="direccionActualizar" placeholder="Ingrese la nueva direccion" id="preg5" placeholder="Ingrese la nueva direccion">
 					        
 					        
 					        <br><br>
@@ -115,12 +134,7 @@
         </section>
         
         
-
-                     
-                                                                        
-                                                                        
-                                                                        
-                                                                        
+                                                
                                                                         
 <footer><%@include file= "footer.jsp" %></footer>   
 

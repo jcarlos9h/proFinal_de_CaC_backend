@@ -19,43 +19,29 @@
 
 </head>
 <body>
-<header> 
-          <nav class="navbar navbar-expand-lg" style="background-color: #ff6341;">
-            <div class="container-fluid">
-                <img src="./imgs/favicon.ico" style="width: 60px; background:white;border-radius:4px;" alt="">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        
-                        <li class="nav-item">
-                          <a class="nav-link active fs-4 text-black links" aria-current="page" href="misDatosPersonales.jsp" >Usuario-> <%=session.getAttribute("name") %> </a>
-                      		<a hidden name="idUsuario"> <%= session.getAttribute("id") %>= ></a>
-                      </li>
-                        <li class="nav-item">
-                          <a class="nav-link active fs-4 text-black links" aria-current="page" href="salir" >Salir</a>
-                      </li>
-                        
-
-                            <a class="nav-link fs-4 text-black links" href="">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link fs-4 text-black links" href="./pages/IniciarSesion.html">Iniciar Sesion</a>
-                        </li>  
-                        <li class="nav-item">
-                            <a class="nav-link fs-4 text-black links" href="registro.jsp">Registrarse</a>
-                        </li>                   
-
-                    </ul>
-                    <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
-                    <button class="btn btn-light k text-black" type="submit">Buscar</button>
-                    </form>
-                    <a class="cc" href="./pages/carrito.html"><i class="fas fa-shopping-cart"></i></a>
-                </div>
-            </div>
-          </nav>
+		<header> 
+	          <nav class="navbar navbar-expand-lg" style="background-color: #ff6341;">
+	            <div class="container-fluid ">
+	                <img src="imgs/favicon.ico" style="width: 60px; background:white;border-radius:4px;" alt="">
+	                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	                    <span class="navbar-toggler-icon"></span>
+	                </button>
+	                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	                    <a class="nav-link active fs-4 text-black links" aria-current="page" href="misDatosPersonales.jsp" style="text-decoration: none"> Usuario -> <%=session.getAttribute("name") %> </a>
+	                    <a hidden name="idUsuario"> <%= session.getAttribute("id") %>= ></a>
+	                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+	                        <li class="nav-item">
+		                        <a class="nav-link active fs-4 text-black links" aria-current="page" href="salir" >Salir</a>
+		                    </li>
+	                    </ul>
+	                    <form class="d-flex">
+	                    <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
+	                    <button class="btn btn-light k text-black" type="submit">Buscar</button>
+	                    </form>
+	                    <a class="cc" href="./pages/carrito.html"><i class="fas fa-shopping-cart"></i></a>
+	                </div>
+	            </div>
+	          </nav>
         </header>    <!--aqui termina el header-->
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

@@ -1,7 +1,7 @@
 package baseDatos;
 
 public class querysBaseDatos {
-	/*SE CREO LA BASE DE DATOS
+	/*SE CREO LA BASE DE DATOS 
 	CREATE DATABASE Proyecto_Final_Web;
 	USE Proyecto_Final_Web;
 
@@ -27,11 +27,10 @@ public class querysBaseDatos {
 	USE `mydb` ;
 
 	-- -----------------------------------------------------
-	-- Table `mydb`.`Usuario`
-	 SE CREO LA TABLA USUARIOS
+	-- Table `mydb`.`Usuario`/* SE CREO LA TABLA USUARIOS
 	-- -----------------------------------------------------
 	CREATE TABLE IF NOT EXISTS `Proyecto_Final_Web`.`Usuario` (
-	  `id_Usuario` INT NOT NULL,
+	  `id_Usuario` INT NOT NULL AUTO_INCREMENT,
 	  `nombre_completo` VARCHAR(40) NOT NULL,
 	  `email` VARCHAR(255) NOT NULL,
 	  `contraseña` VARCHAR(32) NOT NULL,
@@ -51,7 +50,7 @@ public class querysBaseDatos {
 
 
 	-- -----------------------------------------------------
-	-- Table `mydb`.`Producto` /* SE CREO LA TABLA PRODUCTO
+	-- Table `mydb`.`Producto` /* SE CREO LA TABLA PRODUCTO*
 	-- -----------------------------------------------------
 	CREATE TABLE IF NOT EXISTS `Proyecto_Final_Web`.`Producto` (
 	  `id_Producto` INT NOT NULL AUTO_INCREMENT,
@@ -69,7 +68,7 @@ public class querysBaseDatos {
 
 
 	-- -----------------------------------------------------
-	-- Table `mydb`.`detalle_Orden`/* SE CREO LA TABLA DETALLE_ORDEN
+	-- Table `mydb`.`detalle_Orden`/* SE CREO LA TABLA DETALLE_ORDEN*
 	-- -----------------------------------------------------
 	CREATE TABLE IF NOT EXISTS `Proyecto_Final_Web`.`detalle_Orden` (
 	  `id_Detalle_Orden` INT NOT NULL AUTO_INCREMENT,
@@ -92,5 +91,38 @@ public class querysBaseDatos {
 	SET SQL_MODE=@OLD_SQL_MODE;
 	SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 	SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+	/*
+	CREATE PROCEDURE eliminar_Usuario @? nvarchar(255)
+	AS
+	(SELECT id_Usuario FROM usuario where email = @?) as idUsuario
+	delete from usuario where id_Usuario = idUsuario
+
+	GO;*/
+
+	/*QUERYS DE VERIFICACION PARA TRAER DATOS DE LAS TABLAS*
+	SELECT * FROM USUARIO;
+	select * FROM usuario WHERE id_Usuario = (SELECT id_Usuario FROM usuario WHERE email='fff@fff.com');
+	SELECT * FROM usuario WHERE email='pepino@gmail.com' and contraseña='123456789';
+
+	/*QUERYS DE VERIFICACION PARA ELIMINAR DATOS DE LAS TABLAS*
+	DELETE FROM usuario WHERE id_Usuario = (SELECT id_Usuario FROM usuario WHERE email='fff@fff.com');
+	DELETE FROM usuario WHERE id_Usuario = 2;
+	DELETE FROM usuario where id_Usuario = 12 ;
+	/*Error Code: 1093. You can't specify target table 'usuario' for update in FROM clause*
+
+	/*QUERYS DE VERIFICACION PARA ACTUALIZAR DATOS DE LAS TABLAS*
+	UPDATE  usuario SET nombre_completo = "Juan algomeda", email = "juan_algomeda@gmail.com", contraseña = "123"  WHERE id_Usuario = 11;
+
+	/*QUERYS DE VERIFICACION DE INSERT DE UN USUARIO*
+	INSERT INTO usuario (nombre_completo,email,contraseña)values("Francisco J","123@gmail.com","123456789");
+
+
+	/*OTRAS QUERYS NECESITADAS PARA SOLUCIONAR ALGUNOS ERRORES PRESENTADOS* 
+	ALTER TABLE usuario MODIFY COLUMN id_Usuario INT AUTO_INCREMENT;
+	DROP TABLE detalle_orden;
+	DROP TABLE PRODUCTO;DELETE  FROM usuario WHERE id_Usuario in (SELECT id_Usuario FROM usuario WHERE email='fff@fff.com');
+	ALTER TABLE usuario ADD COLUMN telefono VARCHAR (40), ADD COLUMN direccion VARCHAR(255);
+
 */
 }

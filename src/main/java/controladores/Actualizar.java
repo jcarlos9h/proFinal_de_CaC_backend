@@ -22,23 +22,20 @@ import com.mysql.cj.Session;
 public class Actualizar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    
     public Actualizar() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String nombreActualizado = request.getParameter("nombreActualizar");
 		String emailActualizado = request.getParameter("emailActualizar");
 		String passActualizada = request.getParameter("passActualizar");
+		String telefActualizado = request.getParameter("telefonoActualizar");
+		String direccionActualizada = request.getParameter("direccionActualizar");
 		HttpSession session = request.getSession();
 		int idUsuario = (int)session.getAttribute("id");
 		
@@ -48,19 +45,23 @@ public class Actualizar extends HttpServlet {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			coneccion = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_final_web?useSSL=false", "root","21306336.Ff,");
-			final String SENTENCIA = "UPDATE usuario SET nombre_completo = ?, email = ?, contraseña = ?  WHERE id_Usuario = ?";
+			final String SENTENCIA = "UPDATE usuario SET nombre_completo = ? , email = ? , contraseña = ? , telefono = ? , direccion = ?   WHERE id_Usuario = ?";
 			
 			PreparedStatement prepaSentencia = coneccion.prepareStatement(SENTENCIA);
 			prepaSentencia.setString(1, nombreActualizado);
 			prepaSentencia.setString(2, emailActualizado);
 			prepaSentencia.setString(3, passActualizada);
-			prepaSentencia.setInt(4, idUsuario);
+			prepaSentencia.setString(4, telefActualizado);
+			prepaSentencia.setString(5, direccionActualizada);
+			prepaSentencia.setInt(6, idUsuario);
 			
 			int numeroEjecucion = prepaSentencia.executeUpdate();
 			
 			if(numeroEjecucion>0) {
 				session.setAttribute("name", nombreActualizado);
 				session.setAttribute("email", emailActualizado);
+				session.setAttribute("telefono", telefActualizado);
+				session.setAttribute("direccion", direccionActualizada);
 				dispacher = request.getRequestDispatcher("index.jsp");
 			}
 			

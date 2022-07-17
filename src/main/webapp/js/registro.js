@@ -60,6 +60,14 @@ alert("Usuario registrado con exito!")
 
 */
 
-  
+  	var passUno = document.getElementById("passwordRegistro").value;
+	 		
+	var passDos = document.getElementById("passwordSesion").value;
+	 		
+	if(passUno!=passDos){
+	 alert("Las contraseñas son diferentes intente nuevamente");
+	 }else{
+		alert("El registro fue realizado con exito");
+	}
 
 
