@@ -44,7 +44,7 @@ public class Actualizar extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			coneccion = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_final_web?useSSL=false", "root","21306336.Ff,");
+			coneccion = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_final_web?useSSL=false", "root","17av5751");
 			final String SENTENCIA = "UPDATE usuario SET nombre_completo = ? , email = ? , contraseña = ? , telefono = ? , direccion = ?   WHERE id_Usuario = ?";
 			
 			PreparedStatement prepaSentencia = coneccion.prepareStatement(SENTENCIA);
